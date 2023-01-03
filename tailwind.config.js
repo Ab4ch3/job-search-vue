@@ -8,6 +8,11 @@ module.exports = {
         // Para asegurar que nuestra fuente este disponible y tener los respaldo que tiene por defecto el tailwind
         sans: ["Open Sans", ...defaultTheme.fontFamily.sans],
       },
+      colors: {
+        "brand-gray-1": "#dadce0",
+        "brand-blue-1": "#1967d2",
+        "brand-green-1": "#137333",
+      },
     },
   },
   plugins: [],

@@ -1,10 +1,14 @@
 <template>
-  <h1>Hello Vue</h1>
+  <main_nav_component />
 </template>
 
 <script>
+import main_nav_component from "@/components/main_nav_component.vue";
 export default {
   name: "App",
+  components: {
+    main_nav_component,
+  },
 };
 </script>
 
