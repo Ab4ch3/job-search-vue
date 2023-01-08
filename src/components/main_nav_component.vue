@@ -23,7 +23,11 @@
             v-if="isLoggedIn"
             data-test="profile-images"
           />
-          <action_button_component v-else data-test="login-button" />
+          <action_button_component
+            v-else
+            data-test="login-button"
+            @click="loginUser"
+          />
         </div>
       </div>
     </div>
@@ -33,9 +37,11 @@
 <script setup>
 import action_button_component from "@/components/action_button_component";
 import profile_image_component from "@/components/profile_image_component";
-const company = "Island Jobs";
-const url = "https://careers.google.com";
-const menuItems = [
+import { ref } from "vue";
+
+let company = "Island Jobs";
+let url = "https://careers.google.com";
+let menuItems = [
   "Teams",
   "Locations",
   "Life at Island Jobs",
@@ -43,7 +49,10 @@ const menuItems = [
   "Student",
   "Jobs",
 ];
-const isLoggedIn = false;
+let isLoggedIn = ref(false);
+const loginUser = () => {
+  isLoggedIn.value = true;
+};
 </script>
 
 <style lang="scss" scoped></style>

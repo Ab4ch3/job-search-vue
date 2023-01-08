@@ -32,38 +32,26 @@ describe("main_nav_component", () => {
 
   describe("when user is logged out", () => {
     it("Prompts user to sing in", () => {
-      const wrapper = mount(main_nav_component, {
-        data() {
-          return {
-            isLoggedIn: false,
-          };
-        },
-      });
-      // Find component busca dentro de nuestra plantilla un conponente definido
+      const wrapper = mount(main_nav_component);
       const loginButton = wrapper.find("[data-test='login-button']");
-
-      const profileImage = wrapper.find("[data-test='profile-images']");
-
       // El metodo exits() te devolvera true o sie xiste el componente que le pasamos
       expect(loginButton.exists()).toBe(true);
-      expect(profileImage.exists()).toBe(false);
     });
   });
 
   describe("when user is logged in", () => {
-    it("displays user profile picture", () => {
-      const wrapper = mount(main_nav_component, {
-        data() {
-          return {
-            isLoggedIn: true,
-          };
-        },
-      });
+    it("displays user profile picture", async () => {
+      const wrapper = mount(main_nav_component);
       //Esta vez usamos find para buscar un elemento con propiedades creadas por nosotros para evitar cambios a futuro
+      let profileImage = wrapper.find("[data-test='profile-images']");
+      expect(profileImage.exists()).toBe(false);
+
       const loginButton = wrapper.find("[data-test='login-button']");
-      const profileImage = wrapper.find("[data-test='profile-images']");
+      // Vamos a simular el click del usuario para hacer el cambio en las propiedades que harian que la imagen apareciera
+      await loginButton.trigger("click");
+      // Se tiene q volver a correr ya que la primera busqueda mantendra los valores originales que no tenian la imagen luego del click se buscaria de nuevo
+      profileImage = wrapper.find("[data-test='profile-images']");
       // El metodo exits() te devolvera true o sie xiste el componente que le pasamos
-      expect(loginButton.exists()).toBe(false);
       expect(profileImage.exists()).toBe(true);
     });
   });
