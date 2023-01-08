@@ -18,12 +18,21 @@
             </li>
           </ul>
         </nav>
+        <div class="flex items-center h-full ml-auto">
+          <profile_image_component
+            v-if="isLoggedIn"
+            data-test="profile-images"
+          />
+          <action_button_component v-else data-test="login-button" />
+        </div>
       </div>
     </div>
   </header>
 </template>
 
 <script setup>
+import action_button_component from "@/components/action_button_component";
+import profile_image_component from "@/components/profile_image_component";
 const company = "Island Jobs";
 const url = "https://careers.google.com";
 const menuItems = [
@@ -34,6 +43,7 @@ const menuItems = [
   "Student",
   "Jobs",
 ];
+const isLoggedIn = false;
 </script>
 
 <style lang="scss" scoped></style>
