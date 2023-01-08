@@ -16,4 +16,10 @@ module.exports = {
     },
   },
   plugins: [],
+  variants: {
+    extends: {
+      // Con este nos permitira seleccionar el primer elemento de un grupo y aplicale estilo diferente
+      margin: ["first"],
+    },
+  },
 };

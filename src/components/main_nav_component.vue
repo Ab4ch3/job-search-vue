@@ -4,7 +4,20 @@
       <div
         class="flex flex-nowrap h-full px-8 mx-auto border-b border-solid border-brand-gray-1"
       >
-        <a href="/" class="flex items-center h full text-xl">{{ company }}</a>
+        <a :href="url" class="flex items-center h full text-xl">{{
+          company
+        }}</a>
+        <nav class="h-full ml-12">
+          <ul class="flex h-full p-0 m-0 list-none">
+            <li
+              v-for="item of menuItems"
+              :key="item"
+              class="h-full ml-9 first:ml-0"
+            >
+              <a href="" class="flex items-center h-full py-2.5">{{ item }}</a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
   </header>
@@ -12,6 +25,15 @@
 
 <script setup>
 const company = "Island Jobs";
+const url = "https://careers.google.com";
+const menuItems = [
+  "Teams",
+  "Locations",
+  "Life at Island Jobs",
+  "how we hire",
+  "Student",
+  "Jobs",
+];
 </script>
 
 <style lang="scss" scoped></style>
