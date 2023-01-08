@@ -13,4 +13,20 @@ describe("main_nav_component", () => {
 
     // console.log(wrapper.html()); //Nos mostrara la porcion html de nuestro codigo
   });
+  it("Displays menu items for navigation", () => {
+    const wrapper = mount(main_nav_component);
+    // Find buscar ciertos elementos dentro de nuestro html, css clases o ID de elementos
+    const navigationMenuItems = wrapper.findAll("li");
+    // el metodo text() nos da el valor que tendran los elementos
+    const navigationMenuText = navigationMenuItems.map((item) => item.text());
+    // toEqual va evaluar que sean el mismo valor pero no el mismo tipo
+    expect(navigationMenuText).toEqual([
+      "Teams",
+      "Locations",
+      "Life at Island Jobs",
+      "how we hire",
+      "Student",
+      "Jobs",
+    ]);
+  });
 });
