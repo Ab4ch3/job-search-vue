@@ -6,10 +6,18 @@
 
 <script setup>
 import { defineProps, computed } from "vue";
-
+// Definimos los props que esta pasando el componente padre
 const props = defineProps({
   text: { type: String, required: true },
-  type: { type: String, required: true },
+  type: {
+    type: String,
+    required: true,
+    default: "primary",
+    // una manera de validar los valores esperados en props
+    validator(value) {
+      return ["primary", "secondary"].includes(value);
+    },
+  },
 });
 
 // La computada verificara el cambio en tiempo real de la propiedad primary y lo mostrara
