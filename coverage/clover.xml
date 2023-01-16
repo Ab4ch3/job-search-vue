@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1673832512716" clover="3.2.0">
-  <project timestamp="1673832512716" name="All files">
+<coverage generated="1673910774328" clover="3.2.0">
+  <project timestamp="1673910774328" name="All files">
     <metrics statements="43" coveredstatements="41" conditionals="2" coveredconditionals="1" methods="9" coveredmethods="7" elements="54" coveredelements="49" complexity="0" loc="43" ncloc="43" packages="1" files="3" classes="3"/>
     <file name="action_button_component.vue" path="/var/www/html/CursosDev/job-search-vue/src/components/action_button_component.vue">
       <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
