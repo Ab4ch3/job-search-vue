@@ -1,5 +1,6 @@
 <template>
-  <header class="w-full text-sm">
+  <!-- De esta manera podemos especificar clases atra vez de propiedades computadas y poder seguir ejecutando clases de tailwind -->
+  <header :class="['w-full', 'text-sm', headerHeightClass]">
     <div class="fixed top-0 left-0 w-full h-16 bg-white">
       <div
         class="flex flex-nowrap h-full px-8 mx-auto border-b border-solid border-brand-gray-1"
@@ -43,7 +44,7 @@ import action_button_component from "@/components/action_button_component";
 import profile_image_component from "@/components/profile_image_component";
 import sub_nav_component from "@/components/sub_nav_component.vue";
 
-import { ref } from "vue";
+import { ref, computed } from "vue";
 
 let company = "Island Jobs";
 let url = "https://careers.google.com";
@@ -56,9 +57,17 @@ let menuItems = [
   "Jobs",
 ];
 let isLoggedIn = ref(false);
+
 const loginUser = () => {
   isLoggedIn.value = true;
 };
+
+const headerHeightClass = computed(() => {
+  return {
+    "h-16": !isLoggedIn.value,
+    "h-32": isLoggedIn.value,
+  };
+});
 </script>
 
 <style lang="scss" scoped></style>
