@@ -6,7 +6,7 @@
           1 Column
         </div>
         <div class="col-start-2 col-span-5 border border-blue-700">
-          5 Column
+          <head_line_component />
         </div>
         <div class="col-start-7 col-span-5 border border-blue-700">
           5 Column
@@ -19,6 +19,8 @@
   </main>
 </template>
 
-<script setup></script>
+<script setup>
+import head_line_component from "@/components/head_line_component";
+</script>
 
 <style lang="scss" scoped></style>
