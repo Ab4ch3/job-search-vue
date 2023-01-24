@@ -8,17 +8,19 @@
 
 <script setup>
 import { ref } from "vue";
-let action = ref("Build");
+let action = ref("Create");
+
 let interval = ref(null);
 const changeTitle = () => {
   interval = setInterval(() => {
     let actions = ["Build", "Create", "Desing", "Code"];
     let currentActionIndex = actions.indexOf(action.value);
+    console.log(currentActionIndex);
     let nextActionIndex = (currentActionIndex + 1) % 4;
     const nextAction = actions[nextActionIndex];
-    action = nextAction;
-    // console.log(nextAction);
-    console.log(action);
+    console.log(nextActionIndex);
+    action.value = nextAction;
+    console.log(action.value);
   }, 5000);
 };
 changeTitle();
