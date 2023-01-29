@@ -1,30 +1,50 @@
 <template>
   <section>
-    <h1>{{ action }} for everyone</h1>
-    <h2>find your next job at island job</h2>
+    <h1
+      class="font-bold tracking-tighter text-8xl mb-14"
+      data-test="action-phrase"
+    >
+      <span :class="actionClass">{{ action }}</span>
+      <br />
+      for everyone
+    </h1>
+    <h2 class="text-3xl font-light">find your next job at island job</h2>
   </section>
-  {{ interval }}
 </template>
 
 <script setup>
-import { ref, onBeforeUnmount } from "vue";
-let action = ref("Create");
-
+import nextElementeInList from "@/utils/next_element_in_list";
+import { ref, onBeforeUnmount, computed } from "vue";
+let action = ref("Build");
 let interval = ref(null);
+
 const changeTitle = () => {
   interval = setInterval(() => {
-    let actions = ["Build", "Create", "Desing", "Code"];
-    let currentActionIndex = actions.indexOf(action.value);
-    let nextActionIndex = (currentActionIndex + 1) % 4;
-    const nextAction = actions[nextActionIndex];
-    action.value = nextAction;
+    let actions = ["Build", "Create", "Design", "Code"];
+    action.value = nextElementeInList(actions, action.value);
   }, 5000);
 };
-changeTitle();
 
+const actionClass = computed(() => action.value.toLowerCase());
+// Se ejecuta al crear el componente
+changeTitle();
+// Despues de desmontar el componente
 onBeforeUnmount(() => {
   clearInterval(interval);
 });
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.build {
+  color: #1a73e8;
+}
+.create {
+  color: #34a853;
+}
+.design {
+  color: #f0ab00;
+}
+.code {
+  color: #d93025;
+}
+</style>
