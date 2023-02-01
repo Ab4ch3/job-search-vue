@@ -31,10 +31,10 @@ const buttonClass = computed(() => {
 <style scoped>
 button {
   /* Apply nos permite usar tailwind en esta seccion de Css puro */
-  @apply px-5 py-3 rounded font-medium;
+  @apply px-5 py-3 font-medium;
 }
 .primary {
-  @apply text-white bg-brand-blue-1 hover:shadow-blue-200;
+  @apply rounded text-white bg-brand-blue-1 hover:shadow-blue-200;
 }
 .secondary {
   @apply text-brand-blue-1 bg-transparent hover:bg-brand-blue-2  hover:text-white;

@@ -40,9 +40,9 @@
 </template>
 
 <script setup>
-import action_button_component from "@/components/action_button_component";
-import profile_image_component from "@/components/profile_image_component";
-import sub_nav_component from "@/components/sub_nav_component.vue";
+import action_button_component from "@/components/shared/action_button_component";
+import profile_image_component from "@/components/navegation/profile_image_component";
+import sub_nav_component from "@/components/navegation/sub_nav_component.vue";
 
 import { ref, computed } from "vue";
 

@@ -1,7 +1,7 @@
 // Esta libreria nos permite probar componenetes de vue fuera del navegador
 import { shallowMount } from "@vue/test-utils";
 
-import main_nav_component from "@/components/main_nav_component";
+import main_nav_component from "@/components/navegation/main_nav_component";
 
 describe("main_nav_component", () => {
   it("Displays company name", () => {

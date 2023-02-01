@@ -1,7 +1,7 @@
 import { nextTick } from "vue";
 import { mount } from "@vue/test-utils";
 
-import head_line_component from "@/components/head_line_component";
+import head_line_component from "@/components/job_search/head_line_component";
 
 describe("HeadLine", () => {
   // Esto lo ejecutara antes de cada prueba

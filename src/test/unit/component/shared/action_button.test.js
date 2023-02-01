@@ -1,6 +1,6 @@
 import { mount } from "@vue/test-utils";
 
-import action_button_component from "@/components/action_button_component.vue";
+import action_button_component from "@/components/shared/action_button_component.vue";
 
 describe("ActionButton", () => {
   it("render text", () => {
