@@ -6,8 +6,12 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import App from "@/App.vue";
 import "@/assets/tailwind.css";
+import router from "./router";
 
 library.add(faSearch);
 // De esta manera colocamos un componenente global
 //Primero va la etiqueta , y luego el componente real que va a renderizar
-createApp(App).component("font-awesome-icon", FontAwesomeIcon).mount("#app");
+createApp(App)
+  .use(router)
+  .component("font-awesome-icon", FontAwesomeIcon)
+  .mount("#app");
