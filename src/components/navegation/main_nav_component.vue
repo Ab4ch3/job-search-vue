@@ -5,9 +5,9 @@
       <div
         class="flex flex-nowrap h-full px-8 mx-auto border-b border-solid border-brand-gray-1"
       >
-        <a :href="url" class="flex items-center h full text-xl">{{
+        <routerLink to="/" class="flex items-center h full text-xl">{{
           company
-        }}</a>
+        }}</routerLink>
         <nav class="h-full ml-12">
           <ul class="flex h-full p-0 m-0 list-none">
             <li
@@ -45,9 +45,9 @@ import profile_image_component from "@/components/navegation/profile_image_compo
 import sub_nav_component from "@/components/navegation/sub_nav_component.vue";
 
 import { ref, computed } from "vue";
+import { RouterLink } from "vue-router";
 
 let company = "Island Jobs";
-let url = "https://careers.google.com";
 let menuItems = [
   "Teams",
   "Locations",
