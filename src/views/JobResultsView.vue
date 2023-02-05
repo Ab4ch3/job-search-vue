@@ -6,10 +6,11 @@
 </template>
 
 <script setup>
-import { computed, r } from "vue";
+import { computed } from "vue";
+import { useRoute } from "vue-router";
 
 const experiment = computed(() => {
-  console.log(route);
+  console.log(useRoute());
   return "Irrelevant";
 });
 </script>
