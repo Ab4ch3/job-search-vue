@@ -5,17 +5,21 @@
       <div
         class="flex flex-nowrap h-full px-8 mx-auto border-b border-solid border-brand-gray-1"
       >
-        <routerLink to="/" class="flex items-center h full text-xl">{{
+        <router-link to="/" class="flex items-center h full text-xl">{{
           company
-        }}</routerLink>
+        }}</router-link>
         <nav class="h-full ml-12">
           <ul class="flex h-full p-0 m-0 list-none">
             <li
               v-for="item of menuItems"
-              :key="item"
+              :key="item.text"
               class="h-full ml-9 first:ml-0"
             >
-              <a href="" class="flex items-center h-full py-2.5">{{ item }}</a>
+              <router-link
+                :to="item.url"
+                class="flex items-center h-full py-2.5"
+                >{{ item.text }}</router-link
+              >
             </li>
           </ul>
         </nav>
@@ -45,16 +49,15 @@ import profile_image_component from "@/components/navegation/profile_image_compo
 import sub_nav_component from "@/components/navegation/sub_nav_component.vue";
 
 import { ref, computed } from "vue";
-import { RouterLink } from "vue-router";
 
 let company = "Island Jobs";
 let menuItems = [
-  "Teams",
-  "Locations",
-  "Life at Island Jobs",
-  "how we hire",
-  "Student",
-  "Jobs",
+  { text: "Teams", url: "/" },
+  { text: "Locations", url: "/" },
+  { text: "Life at Island Jobs", url: "/" },
+  { text: "how we hire", url: "/" },
+  { text: "Student", url: "/" },
+  { text: "Jobs", url: "/jobs/results" },
 ];
 let isLoggedIn = ref(false);
 

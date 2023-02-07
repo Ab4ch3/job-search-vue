@@ -1,6 +1,7 @@
 <template>
   <form
     class="flex items-center w-full h-12 mt-14 border border-solid border-brand-gray-3 rounded-3xl"
+    @submit.prevent="searchForJobs"
   >
     <font-awesome-icon :icon="['fas', 'search']" class="ml-4 mr-3" />
     <div class="flex flex-nowrap flex-1 h-full text-base font-light">
@@ -18,21 +19,25 @@
       </div>
     </div>
 
-    <action_button_component
-      text="Search"
-      type="secondary"
-      class="rounded-r-3xl"
-    />
+    <ActionButton text="Search" type="secondary" class="rounded-r-3xl" />
   </form>
 </template>
 
 <script setup>
 import { ref } from "vue";
-import action_button_component from "@/components/shared/action_button_component.vue";
+import { useRouter } from "vue-router";
+import ActionButton from "@/components/shared/action_button_component.vue";
 import TextInput from "@/components/shared/text_input_component.vue";
-
+const router = useRouter();
 let role = ref("");
 let location = ref("");
+
+const searchForJobs = () => {
+  router.push({
+    path: "/jobs/results",
+    query: { role: role.value, location: location.value }, // Asi enviamos paramatros hacia una ruta
+  });
+};
 </script>
 
 <style scoped></style>

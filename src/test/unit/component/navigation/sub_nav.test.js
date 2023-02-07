@@ -5,8 +5,14 @@ import sub_nav_component from "@/components/navegation/sub_nav_component.vue";
 describe("Subnav", () => {
   describe("when user is on job page", () => {
     it("displays job count", () => {
+      const $route = {
+        name: "JobResults",
+      };
       const wrapper = mount(sub_nav_component, {
         global: {
+          mocks: {
+            $route,
+          },
           stubs: {
             FontAwesomeIcon: true,
           },

@@ -14,7 +14,12 @@
 </template>
 
 <script setup>
-let onJobResultPage = true;
+import { computed } from "vue";
+import { useRoute } from "vue-router";
+const route = useRoute();
+const onJobResultPage = computed(() => {
+  return route.name === "JobsResults";
+});
 </script>
 
 <style lang="scss" scoped></style>
