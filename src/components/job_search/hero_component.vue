@@ -41,7 +41,7 @@ const changeImg = () => {
       "https://i.postimg.cc/8PcbqRPP/hero-04-1x-5377e160fa426c8b388a861f23cc185b.png",
     ];
     image.value = nextElementeInList(library, image.value);
-  }, 5000);
+  }, 5500);
 };
 
 changeImg();

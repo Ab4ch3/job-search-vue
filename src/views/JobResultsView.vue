@@ -1,14 +1,11 @@
 <template>
-  <div>
-    <h1 class="text-6xl font-bold">Job Result View</h1>
-    <button @click="goToHome">Go to Home Page</button>
+  <div class="flex flex-row flex-nowrap w-full">
+    <JobFilterSidebar />
+    <JobListing />
   </div>
 </template>
 
 <script setup>
-import { useRouter } from "vue-router";
-const router = useRouter();
-const goToHome = () => {
-  router.push("/");
-};
+import JobListing from "@/components/Job_result/JobListings.vue";
+import JobFilterSidebar from "@/components/Job_result/JobFilterSidebar/JobFilterSidebar.vue";
 </script>
