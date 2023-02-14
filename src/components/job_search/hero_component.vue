@@ -29,16 +29,16 @@ import JobSearch from "@/components/job_search/job_search_form_component";
 
 let interval = ref(null);
 let image = ref(
-  "https://i.postimg.cc/2yc716TD/hero-01-1x-6edcfb8c57f30c2566faefba9c92ed8b.png"
+  "https://i.postimg.cc/rsJsc7qj/hero-01-1x-6edcfb8c57f30c2566faefba9c92ed8b.png"
 );
 
 const changeImg = () => {
   interval = setInterval(() => {
     let library = [
-      "https://i.postimg.cc/2yc716TD/hero-01-1x-6edcfb8c57f30c2566faefba9c92ed8b.png",
-      "https://i.postimg.cc/BQzCsjX5/hero-02-1x-ccad21962c34a5560e19fdee20717428.png",
-      "https://i.postimg.cc/44B5LLGS/hero-03-1x-085e94af78d9906f55c83d558eca4453.png",
-      "https://i.postimg.cc/8PcbqRPP/hero-04-1x-5377e160fa426c8b388a861f23cc185b.png",
+      "https://i.postimg.cc/rsJsc7qj/hero-01-1x-6edcfb8c57f30c2566faefba9c92ed8b.png",
+      "https://i.postimg.cc/8kBjhfLv/hero-02-1x-ccad21962c34a5560e19fdee20717428.png",
+      "https://i.postimg.cc/wMHMC9Y3/hero-03-1x-085e94af78d9906f55c83d558eca4453.png",
+      "https://i.postimg.cc/MT1X3v4h/hero-04-1x-5377e160fa426c8b388a861f23cc185b.png",
     ];
     image.value = nextElementeInList(library, image.value);
   }, 5500);
