@@ -36,6 +36,14 @@ const routes = [
 const router = createRouter({
   history: createWebHashHistory(),
   routes,
+  scrollBehavior() {
+    /* Especifica como se comportara el desplazamiento siempre q haya un cambio en la ruta
+    Cade vez que haya un cambio nos enviara hacia la parte de arriba y a la izquierda del 
+    sitio
+    behavior es como la transicion de como subira al principio
+    */
+    return { top: 0, left: 0, behavior: "smooth" };
+  },
 });
 
 export default router;
