@@ -44,12 +44,15 @@
 </template>
 
 <script setup>
+// Import Components
 import action_button_component from "@/components/shared/action_button_component";
 import profile_image_component from "@/components/navegation/profile_image_component";
 import sub_nav_component from "@/components/navegation/sub_nav_component.vue";
-
-import { ref, computed } from "vue";
-
+// Import library
+import { useAuthStore } from "@/store/AuthStore.js";
+import { computed } from "vue";
+// Data
+const store = useAuthStore();
 let company = "Island Jobs";
 let menuItems = [
   { text: "Teams", url: "/" },
@@ -59,12 +62,14 @@ let menuItems = [
   { text: "Student", url: "/" },
   { text: "Jobs", url: "/jobs/results" },
 ];
-let isLoggedIn = ref(false);
-
+// Funtions
 const loginUser = () => {
-  isLoggedIn.value = true;
+  store.loginUser();
 };
-
+// Computed
+const isLoggedIn = computed(() => {
+  return store.isLoggin;
+});
 const headerHeightClass = computed(() => {
   return {
     "h-16": !isLoggedIn.value,
