@@ -28,23 +28,20 @@
 </template>
 
 <script setup>
-import axios from "axios";
 import JobListing from "@/components/Job_result/JobLinsting.vue";
-import { reactive, onMounted, computed } from "vue";
+import { onMounted, computed } from "vue";
 import { useRoute } from "vue-router";
+import { useJobsStore } from "@/store/JobsStore.js";
 
+const store = useJobsStore();
 const route = useRoute();
-let state = reactive({ jobs: [] });
 onMounted(() => {
-  getJobs();
+  store.getJobs();
 });
 
-const getJobs = async () => {
-  const baseUrl = process.env.VUE_APP_API_URL;
-  await axios.get(`${baseUrl}/jobs`).then((response) => {
-    state.jobs = response.data;
-  });
-};
+const getJobs = computed(() => {
+  return store.Jobs;
+});
 
 const currentPage = computed(() => {
   const pageString = route.query.page || "1"; //Se le da un valor por defecto
@@ -55,9 +52,9 @@ const displayedJobs = computed(() => {
   const pageNumber = currentPage;
   const firtsJobIndex = (pageNumber.value - 1) * 10;
   const lastJobIndex = pageNumber.value * 10;
-  return state.jobs.slice(firtsJobIndex, lastJobIndex);
+  return getJobs.value.slice(firtsJobIndex, lastJobIndex);
 });
-
+console.log(displayedJobs);
 const previousPage = computed(() => {
   const previousPage = currentPage.value - 1;
   const firtsPage = 1;
@@ -66,7 +63,7 @@ const previousPage = computed(() => {
 
 const nextPage = computed(() => {
   const nextPage = currentPage.value + 1;
-  const maxPage = state.jobs.length / 10;
+  const maxPage = getJobs.value.length / 10;
   return nextPage <= maxPage ? nextPage : undefined;
 });
 </script>
