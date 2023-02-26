@@ -54,7 +54,6 @@ const displayedJobs = computed(() => {
   const lastJobIndex = pageNumber.value * 10;
   return getJobs.value.slice(firtsJobIndex, lastJobIndex);
 });
-console.log(displayedJobs);
 const previousPage = computed(() => {
   const previousPage = currentPage.value - 1;
   const firtsPage = 1;

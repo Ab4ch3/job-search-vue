@@ -9,9 +9,12 @@ export const useJobsStore = defineStore("JobsStore", {
   actions: {
     async getJobs() {
       const baseUrl = process.env.VUE_APP_API_URL;
-      await axios.get(`${baseUrl}/jobs`).then((response) => {
+      try {
+        const response = await axios.get(`${baseUrl}/jobs`);
         this.Jobs = response.data;
-      });
+      } catch (error) {
+        console.warn(error);
+      }
     },
   },
 });
