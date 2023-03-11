@@ -55,7 +55,7 @@ import { computed } from "vue";
 const store = useAuthStore();
 let company = "Island Jobs";
 let menuItems = [
-  { text: "Teams", url: "/" },
+  { text: "Teams", url: "/teams" },
   { text: "Locations", url: "/" },
   { text: "Life at Island Jobs", url: "/" },
   { text: "how we hire", url: "/" },

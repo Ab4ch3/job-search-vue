@@ -8,6 +8,7 @@ import { createRouter, createWebHashHistory } from "vue-router";
 const HomeView = () => import("@/views/HomeView.vue");
 const JobsResults = () => import("@/views/JobResultsView.vue");
 const JobView = () => import("@/views/JobsView.vue");
+const TeamView = () => import("@/views/TeamView.vue");
 
 const routes = [
   // Declaramos la rutas que usaremos y colocamos los componentes que usaremis para cada ruta
@@ -30,6 +31,11 @@ const routes = [
     path: "/jobs/results/:id", //Asi especificarmos que esta ruta depende de un parametro llamado ID
     name: "JobListinng",
     component: JobView,
+  },
+  {
+    path: "/teams", //Ruta Teams
+    name: "Teams",
+    component: TeamView,
   },
 ];
 
